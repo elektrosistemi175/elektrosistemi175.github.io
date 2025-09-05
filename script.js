@@ -17,3 +17,9 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+// Эффект заголовка
+const title = document.querySelector('.animate-title');
+title.innerHTML = title.textContent.split('').map((letter, i) =>
+  `<span style="animation-delay:${i * 0.05}s">${letter}</span>`
+).join('');
