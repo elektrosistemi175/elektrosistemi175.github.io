@@ -27,3 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 });
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
