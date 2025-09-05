@@ -1,62 +1,100 @@
-/* Общие стили */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
-  padding: 0;
   background: #f5f5f5;
   color: #333;
 }
 
-/* Шапка */
-header {
-  background: linear-gradient(90deg, #0057b7, #ffd700);
-  color: white;
-  padding: 20px;
+/* Герой-блок */
+.hero {
+  background: url('banner.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero .overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
   text-align: center;
+  color: white;
+  border-radius: 10px;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.btn {
+  background: #ffd700;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.btn:hover {
+  background: #ffcc00;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+/* Навигация */
+.sticky-nav {
+  background: #0057b7;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
-header h2 {
-  margin: 5px 0 15px;
-  font-weight: normal;
-}
-
-/* Меню */
-nav ul {
+.sticky-nav ul {
   list-style: none;
-  padding: 0;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
-
-nav ul li {
-  display: inline-block;
-  margin: 0 10px;
+.sticky-nav li {
+  margin: 0 15px;
 }
-
-nav ul li a {
+.sticky-nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
-
-nav ul li a:hover {
+.sticky-nav a:hover {
   text-decoration: underline;
 }
 
-/* Основной контент */
-main {
-  padding: 20px;
+/* Карточки */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-
-section {
-  margin-bottom: 40px;
+.card {
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex: 1 1 calc(33% - 20px);
+  min-width: 250px;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Анимации появления */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Футер */
@@ -69,9 +107,10 @@ footer {
 
 /* Адаптив */
 @media (max-width: 768px) {
-  nav ul li {
-    display: block;
-    margin: 5px 0;
+  .cards {
+    flex-direction: column;
+  }
+  .hero h1 {
+    font-size: 2rem;
   }
 }
-
