@@ -1,26 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Сайт загружен!");
-
-  // Плавная прокрутка
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth"
-      });
+// Плавная прокрутка
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
-  });
-
-  // Анимация появления секций
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll(".fade-in").forEach(section => {
-    observer.observe(section);
   });
 });
+
+// Анимация появления карточек
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+document.querySelectorAll('.card').forEach(card => observer.observe(card));
