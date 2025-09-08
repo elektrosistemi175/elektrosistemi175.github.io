@@ -3,215 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Каталог товаров</title>
+  <title>Сборка электрических щитов • ETI</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f6f8;
-      margin: 0;
-      padding: 20px;
+      color: #222;
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .lang-switch {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .lang-switch button {
-      margin: 0 5px;
-      padding: 6px 12px;
-      border: none;
-      background: #ccc;
-      cursor: pointer;
-    }
-    .lang-switch button.active {
-      background: #007bff;
-      color: white;
-    }
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    select {
-      padding: 6px;
-      font-size: 14px;
-    }
-    #catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .product-card {
-      background: white;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .product-card img {
+    .main-banner {
+      position: relative;
       width: 100%;
-      height: 150px;
-      object-fit: contain;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .main-banner img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoomIn 6s ease forwards;
+      filter: brightness(0.7);
+    }
+    .banner-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+    .banner-overlay h1 {
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: bold;
       margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.3s forwards;
     }
-    .card-actions {
-      margin-top: 10px;
+    .banner-overlay p {
+      font-size: clamp(16px, 2vw, 24px);
+      opacity: 0.85;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.6s forwards;
     }
-    .btn {
-      padding: 6px 12px;
-      margin: 5px;
-      border: none;
-      background: #eee;
-      cursor: pointer;
+    .cta-button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #ffd400, #fff57a);
+      color: #000;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(255,212,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.9s forwards;
     }
-    .btn-primary {
-      background: #28a745;
-      color: white;
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(255,212,0,0.4);
+    }
+    @keyframes zoomIn {
+      from { transform: scale(1.1); }
+      to { transform: scale(1); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <h2>Каталог товаров</h2>
+  <section class="main-banner">
+    <img src="/banner.jpg" alt="Сборка электрических щитов и автоматика ETI" />
+    <div class="banner-overlay">
+      <h1>Сборка электрических щитов</h1>
+      <p>Автоматы ETI • Комплектация • Поставка</p>
+      <a href="#catalog" class="cta-button">Смотреть каталог</a>
+    </div>
+  </section>
 
-  <div class="lang-switch">
-    <button data-lang="ru" class="active">RU</button>
-    <button data-lang="ua">UA</button>
-  </div>
-
-  <div class="filters">
-    <select id="filter-current">
-      <option value="">Ток</option>
-      <option value="10">10А</option>
-      <option value="13">13А</option>
-      <option value="16">16А</option>
-      <option value="25">25А</option>
-      <option value="32">32А</option>
-      <option value="40">40А</option>
-      <option value="50">50А</option>
-    </select>
-    <select id="filter-characteristic">
-      <option value="">Характеристика</option>
-      <option value="B">B</option>
-      <option value="C">C</option>
-      <option value="D">D</option>
-    </select>
-    <select id="filter-poles">
-      <option value="">Полюсы</option>
-      <option value="1p">1p</option>
-      <option value="2p">2p</option>
-      <option value="3p+N">3p+N</option>
-    </select>
-  </div>
-
-  <div id="catalog-grid"></div>
-
-  <script>
-    let currentLang = 'ru';
-
-    const i18n = {
-      ru: {
-        catalog_title: 'Каталог товаров',
-        btn_details: 'Подробнее',
-        btn_add: 'В запрос',
-        filter_current: 'Ток',
-        filter_char: 'Характеристика',
-        filter_poles: 'Полюсы'
-      },
-      ua: {
-        catalog_title: 'Каталог товарів',
-        btn_details: 'Докладніше',
-        btn_add: 'У запит',
-        filter_current: 'Струм',
-        filter_char: 'Характеристика',
-        filter_poles: 'Полюси'
-      }
-    };
-
-    const products = [
-      {
-        id: "2131716",
-        name_ru: "Автоматический выключатель ETIMAT 10 1p C 16А",
-        name_ua: "Автоматичний вимикач ETIMAT 10 1p C 16А",
-        price: 4.40,
-        current: "16",
-        characteristic: "C",
-        poles: "1p",
-        image: "/images/2131716.jpg"
-      },
-      {
-        id: "2126720",
-        name_ru: "Автоматический выключатель ETIMAT 10 3p+N В 40А",
-        name_ua: "Автоматичний вимикач ETIMAT 10 3p+N В 40А",
-        price: 28.60,
-        current: "40",
-        characteristic: "B",
-        poles: "3p+N",
-        image: "/images/2126720.jpg"
-      }
-    ];
-
-    function renderCatalog() {
-      const grid = document.getElementById("catalog-grid");
-      grid.innerHTML = "";
-
-      const currentFilter = document.getElementById("filter-current").value;
-      const charFilter = document.getElementById("filter-characteristic").value;
-      const polesFilter = document.getElementById("filter-poles").value;
-
-      const filtered = products.filter(p =>
-        (!currentFilter || p.current === currentFilter) &&
-        (!charFilter || p.characteristic === charFilter) &&
-        (!polesFilter || p.poles === polesFilter)
-      );
-
-      filtered.forEach(p => {
-        const name = currentLang === 'ua' ? p.name_ua : p.name_ru;
-        const card = document.createElement("div");
-        card.className = "product-card";
-        card.innerHTML = `
-          <img src="${p.image}" alt="${name}" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22150%22><rect width=%22200%22 height=%22150%22 fill=%22%230f1115%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239aa3b2%22 font-size=%2214%22 font-family=%22Arial%22>${name}</text></svg>'" />
-          <h3>${name}</h3>
-          <p>${p.price.toFixed(2)} ₴</p>
-          <div class="card-actions">
-            <button class="btn">${i18n[currentLang].btn_details}</button>
-            <button class="btn btn-primary">${i18n[currentLang].btn_add}</button>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function applyTranslations() {
-      document.querySelector("h2").textContent = i18n[currentLang].catalog_title;
-      document.getElementById("filter-current").options[0].textContent = i18n[currentLang].filter_current;
-      document.getElementById("filter-characteristic").options[0].textContent = i18n[currentLang].filter_char;
-      document.getElementById("filter-poles").options[0].textContent = i18n[currentLang].filter_poles;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      renderCatalog();
-      applyTranslations();
-
-      document.querySelectorAll(".lang-switch button").forEach(btn => {
-        btn.addEventListener("click", () => {
-          currentLang = btn.dataset.lang;
-          document.querySelectorAll(".lang-switch button").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          applyTranslations();
-          renderCatalog();
-        });
-      });
-
-      document.querySelectorAll("select").forEach(sel => {
-        sel.addEventListener("change", renderCatalog);
-      });
-    });
-  </script>
+  <!-- Остальная часть сайта -->
+  <section id="catalog">
+    <h2>Каталог товаров</h2>
+    <!-- Фильтры и карточки вставляются ниже -->
+  </section>
 
 </body>
 </html>
