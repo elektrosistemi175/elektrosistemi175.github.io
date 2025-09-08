@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Сборка электрических щитов • ETI</title>
+  <title>Сборка щитов • ETI</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: #f4f6f8;
-      color: #222;
+      scroll-behavior: smooth;
     }
     .main-banner {
       position: relative;
@@ -19,20 +19,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #fff;
     }
-    .main-banner img {
+    .video-bg {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
-      animation: zoomIn 6s ease forwards;
-      filter: brightness(0.7);
+      z-index: 1;
+      filter: brightness(0.6);
     }
     .banner-overlay {
       position: relative;
       z-index: 2;
       text-align: center;
-      color: #fff;
       animation: fadeInUp 1.5s ease forwards;
     }
     .banner-overlay h1 {
@@ -44,13 +44,12 @@
     }
     .banner-overlay p {
       font-size: clamp(16px, 2vw, 24px);
-      opacity: 0.85;
-      margin-bottom: 20px;
       opacity: 0;
       animation: fadeInUp 1s ease 0.6s forwards;
     }
     .cta-button {
       display: inline-block;
+      margin-top: 20px;
       padding: 14px 28px;
       background: linear-gradient(135deg, #ffd400, #fff57a);
       color: #000;
@@ -66,10 +65,6 @@
       transform: translateY(-2px);
       box-shadow: 0 12px 36px rgba(255,212,0,0.4);
     }
-    @keyframes zoomIn {
-      from { transform: scale(1.1); }
-      to { transform: scale(1); }
-    }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -79,18 +74,19 @@
 <body>
 
   <section class="main-banner">
-    <img src="/banner.jpg" alt="Сборка электрических щитов и автоматика ETI" />
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="/banner.mp4" type="video/mp4" />
+    </video>
     <div class="banner-overlay">
       <h1>Сборка электрических щитов</h1>
-      <p>Автоматы ETI • Комплектация • Поставка</p>
+      <p>Автоматика ETI • Комплектация • Поставка</p>
       <a href="#catalog" class="cta-button">Смотреть каталог</a>
     </div>
   </section>
 
-  <!-- Остальная часть сайта -->
   <section id="catalog">
     <h2>Каталог товаров</h2>
-    <!-- Фильтры и карточки вставляются ниже -->
+    <!-- Фильтры и карточки -->
   </section>
 
 </body>
