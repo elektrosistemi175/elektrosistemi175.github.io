@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Электромонтаж, инжиниринг, оборудование — под ключ" />
+  <meta name="description" content="Электромонтаж, оборудование, проектирование — под ключ" />
   <meta name="keywords" content="щит, автомат, кабель, Schneider, ABB, электромонтаж" />
   <meta name="author" content="Elektrosistemi175" />
   <title>Elektrosistemi175</title>
@@ -13,6 +13,7 @@
 <body>
   <header>
     <div class="logo">⚡ Elektrosistemi175</div>
+    <input type="text" id="search" placeholder="Поиск..." oninput="searchProducts()" />
     <nav>
       <a href="#catalog">Каталог</a>
       <a href="#cart">Корзина</a>
@@ -29,7 +30,17 @@
   </section>
 
   <main>
+    <section id="filters">
+      <select onchange="filterCategory(this.value)">
+        <option value="">Все категории</option>
+        <option value="щит">Щиты</option>
+        <option value="автомат">Автоматы</option>
+        <option value="кабель">Кабели</option>
+      </select>
+    </section>
+
     <section id="catalog" class="product-grid"></section>
+
     <section id="cart" class="cart hidden">
       <h2>Корзина</h2>
       <div id="cart-items"></div>
