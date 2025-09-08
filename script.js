@@ -1,5 +1,6 @@
 let cart = [];
 let products = [];
+let currentLang = 'ru';
 
 fetch('products.json')
   .then(res => res.json())
@@ -18,7 +19,7 @@ function renderCatalog(list) {
       <img src="${product.image}" alt="${product.name}" />
       <h3>${product.name}</h3>
       <p>${product.price} ₴</p>
-      <button onclick="addToCart(${product.id})">Добавить в корзину</button>
+      <button onclick="addToCart(${product.id})">${getText('add_to_cart')}</button>
     `;
     catalog.appendChild(card);
   });
@@ -63,3 +64,13 @@ function searchProducts() {
   const result = products.filter(p => p.name.toLowerCase().includes(query));
   renderCatalog(result);
 }
+
+function switchLang(lang) {
+  currentLang = lang;
+  fetch('lang.json')
+    .then(res => res.json())
+    .then(data => {
+      const t = data[lang];
+      document.getElementById('nav-catalog').textContent = t.catalog;
+      document.getElementById('nav-cart').textContent = t.cart;
+      document.getElementById
