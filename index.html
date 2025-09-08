@@ -2,67 +2,72 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Электромонтаж, оборудование, проектирование — под ключ" />
-  <meta name="keywords" content="щит, автомат, кабель, Schneider, ABB, электромонтаж" />
-  <meta name="author" content="Elektrosistemi175" />
-  <title>Elektrosistemi175</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Сборка электрических щитов • Автоматы ETI • 175.com.ua</title>
+
+  <!-- SEO base -->
+  <meta name="description" content="Сборка электрических щитов. Автоматы ETI. Комплектация, подбор и поставка. Быстро и аккуратно." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Сборка электрических щитов • Автоматы ETI" />
+  <meta property="og:description" content="Сборка щитов. Автоматика ETI. Комплектация, подбор и поставка." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/banner.jpg" />
+  <meta property="og:url" content="https://175.com.ua/" />
+
+  <link rel="preload" as="image" href="/banner.jpg" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <header>
-    <div class="logo">⚡ Elektrosistemi175</div>
-    <input type="text" id="search" placeholder="Поиск..." oninput="searchProducts()" />
-    <nav>
-      <a href="#catalog" id="nav-catalog">Каталог</a>
-      <a href="#cart" id="nav-cart">Корзина</a>
-    </nav>
-    <div class="lang-switch">
-      <button onclick="switchLang('ru')">RU</button>
-      <button onclick="switchLang('ua')">UA</button>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <a href="/" class="logo">175</a>
+        <span class="tagline" data-i18n="tagline">Сборка электрических щитов • Автоматы ETI</span>
+      </div>
+      <nav class="nav">
+        <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+        <a href="#contact" data-i18n="nav_contact">Контакты</a>
+        <div class="lang-switch">
+          <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="ua">UA</button>
+        </div>
+      </nav>
     </div>
-    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
   </header>
 
-  <section class="banner">
-    <img src="images/banner.jpg" alt="Электромонтаж под ключ" />
-    <div class="banner-text">
-      <h1 id="banner-title">Оборудование и монтаж под ключ</h1>
-      <p id="banner-sub">Щиты, автоматы, кабели — всё в одном месте</p>
+  <section class="main-banner" aria-label="Главный баннер">
+    <img src="/banner.jpg" alt="Сборка электрических щитов и автоматика ETI" />
+    <div class="banner-overlay">
+      <h1 data-i18n="hero_title">Сборка электрических щитов. Автоматы ETI.</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Комплектация, подбор и поставка. Быстро, аккуратно, по ТЗ.</p>
+      <a href="#catalog" class="cta-button" data-i18n="cta_view_catalog">Смотреть каталог</a>
     </div>
   </section>
 
-  <main>
-    <section id="filters">
-      <select onchange="filterCategory(this.value)">
-        <option value="">Все категории</option>
-        <option value="щит">Щиты</option>
-        <option value="автомат">Автоматы</option>
-        <option value="кабель">Кабели</option>
-      </select>
+  <main class="container">
+    <section id="catalog-section" class="catalog-section">
+      <h2 data-i18n="catalog_title">Каталог товаров</h2>
+      <p class="catalog-sub" data-i18n="catalog_sub">Автоматические выключатели ETI — популярные номиналы и характеристики.</p>
+      <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
     </section>
 
-    <section id="catalog" class="product-grid"></section>
-
-    <section id="cart" class="cart hidden">
-      <h2 id="cart-title">Корзина</h2>
-      <div id="cart-items"></div>
-      <button onclick="checkout()" id="checkout-btn">Оформить заказ</button>
+    <section id="contact" class="contact-section">
+      <h2 data-i18n="contact_title">Контакты</h2>
+      <ul class="contact-list">
+        <li><strong data-i18n="contact_label_phone">Телефон:</strong> <a href="tel:+380000000000">+380 (00) 000-00-00</a></li>
+        <li><strong>E-mail:</strong> <a href="mailto:info@175.com.ua">info@175.com.ua</a></li>
+        <li><strong data-i18n="contact_label_note">Заметка:</strong> <span data-i18n="contact_note">Мы занимаемся только сборкой и поставкой, без монтажных работ.</span></li>
+      </ul>
     </section>
   </main>
 
-  <div class="chat-widget">
-    <button onclick="toggleChat()">💬 Помощь</button>
-    <div id="chat-box" class="hidden">
-      <p>Здравствуйте! Чем можем помочь?</p>
-      <input type="text" placeholder="Ваш вопрос..." />
-      <button onclick="sendQuestion()">Отправить</button>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 175.com.ua</span>
+      <span data-i18n="footer_rights">Сборка электрических щитов • Автоматы ETI</span>
     </div>
-  </div>
-
-  <footer>
-    <p>© 2025 Elektrosistemi175 • Telegram: @elektrosistemi175</p>
   </footer>
 
   <script src="script.js"></script>
