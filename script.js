@@ -74,3 +74,32 @@ function switchLang(lang) {
       document.getElementById('nav-catalog').textContent = t.catalog;
       document.getElementById('nav-cart').textContent = t.cart;
       document.getElementById
+      document.getElementById('search').placeholder = t.search;
+      document.getElementById('banner-title').textContent = t.banner_title;
+      document.getElementById('banner-sub').textContent = t.banner_sub;
+      document.getElementById('cart-title').textContent = t.cart;
+      document.getElementById('checkout-btn').textContent = t.checkout;
+      renderCatalog(products); // перерисовать кнопки
+    });
+}
+
+function getText(key) {
+  // fallback для кнопок
+  return langData[currentLang]?.[key] || key;
+}
+
+let langData = {};
+fetch('lang.json')
+  .then(res => res.json())
+  .then(data => {
+    langData = data;
+  });
+
+function toggleChat() {
+  document.getElementById('chat-box').classList.toggle('hidden');
+}
+
+function sendQuestion() {
+  alert('Спасибо! Мы ответим вам в Telegram.');
+}
+
