@@ -1,75 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ElektroSystem175 — Электромонтаж и Инжиниринг</title>
-  <meta name="description" content="Премиальные решения в электромонтаже, производстве и проектировании электрооборудования. Полный цикл — от идеи до пусконаладки.">
-  <meta property="og:title" content="ElektroSystem175 — Электромонтаж и Инжиниринг">
-  <meta property="og:description" content="Производство, монтаж, проектирование — под ключ">
-  <meta property="og:image" content="banner.jpg">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elektrosistemi175</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
+  <header>
+    <div class="logo">Elektrosistemi175</div>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#cart">Корзина</a>
+    </nav>
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+  </header>
 
-<header>
-  <nav>
-    <div class="logo">⚡ ElektroSystem175</div>
-    <ul>
-      <li><a href="#services">Услуги</a></li>
-      <li><a href="#about">О компании</a></li>
-      <li><a href="#contacts">Контакты</a></li>
-    </ul>
-  </nav>
-</header>
+  <main>
+    <section id="catalog" class="product-grid"></section>
+    <section id="cart" class="cart hidden">
+      <h2>Корзина</h2>
+      <div id="cart-items"></div>
+      <button onclick="checkout()">Оформить заказ</button>
+    </section>
+  </main>
 
-<section class="hero">
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1 class="animate-title">Электромонтаж и Инжиниринг</h1>
-    <p>Производство, монтаж, проектирование — под ключ</p>
-    <a href="#services" class="btn">Наши услуги</a>
-  </div>
-</section>
+  <footer>
+    <p>© 2025 Elektrosistemi175</p>
+  </footer>
 
-<section id="services" class="services">
-  <h2>Наши услуги</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="icon">🏭</div>
-      <h3>Производство</h3>
-      <p>Электрощиты, шкафы, кабельные системы, автоматизация.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🔌</div>
-      <h3>Монтаж</h3>
-      <p>Прокладка кабеля, подключение и пусконаладка оборудования.</p>
-    </div>
-    <div class="card">
-      <div class="icon">📐</div>
-      <h3>Инжиниринг</h3>
-      <p>Проектирование и техническое сопровождение объектов.</p>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <h2>О компании</h2>
-  <p>Мы предоставляем полный цикл услуг в сфере электромонтажа и инжиниринга. От идеи и проектирования до производства, монтажа и обслуживания. Работаем с промышленными, коммерческими и частными объектами, гарантируя качество и надежность.</p>
-</section>
-
-<section id="contacts" class="contacts">
-  <h2>Контакты</h2>
-  <p>Email: <a href="mailto:info@elektrosistem175.com">info@elektrosistem175.com</a></p>
-  <p>Телефон: <a href="tel:+380960000000">+38 (096) 000-00-00</a></p>
-</section>
-
-<footer>
-  <p>© 2025 ElektroSystem175. Все права защищены.</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
