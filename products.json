@@ -3,18 +3,21 @@
     "id": 1,
     "name": "Щит Schneider Electric",
     "price": 3200,
+    "category": "щит",
     "image": "images/schneider.jpg"
   },
   {
     "id": 2,
     "name": "Автомат ABB 16A",
     "price": 280,
+    "category": "автомат",
     "image": "images/abb.jpg"
   },
   {
     "id": 3,
     "name": "Кабель ВВГнг 3x2.5",
     "price": 950,
+    "category": "кабель",
     "image": "images/cable.jpg"
   }
 ]
