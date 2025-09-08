@@ -15,17 +15,21 @@
     <div class="logo">⚡ Elektrosistemi175</div>
     <input type="text" id="search" placeholder="Поиск..." oninput="searchProducts()" />
     <nav>
-      <a href="#catalog">Каталог</a>
-      <a href="#cart">Корзина</a>
+      <a href="#catalog" id="nav-catalog">Каталог</a>
+      <a href="#cart" id="nav-cart">Корзина</a>
     </nav>
+    <div class="lang-switch">
+      <button onclick="switchLang('ru')">RU</button>
+      <button onclick="switchLang('ua')">UA</button>
+    </div>
     <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
   </header>
 
   <section class="banner">
     <img src="images/banner.jpg" alt="Электромонтаж под ключ" />
     <div class="banner-text">
-      <h1>Оборудование и монтаж под ключ</h1>
-      <p>Щиты, автоматы, кабели, проектирование — всё в одном месте</p>
+      <h1 id="banner-title">Оборудование и монтаж под ключ</h1>
+      <p id="banner-sub">Щиты, автоматы, кабели — всё в одном месте</p>
     </div>
   </section>
 
@@ -42,11 +46,20 @@
     <section id="catalog" class="product-grid"></section>
 
     <section id="cart" class="cart hidden">
-      <h2>Корзина</h2>
+      <h2 id="cart-title">Корзина</h2>
       <div id="cart-items"></div>
-      <button onclick="checkout()">Оформить заказ</button>
+      <button onclick="checkout()" id="checkout-btn">Оформить заказ</button>
     </section>
   </main>
+
+  <div class="chat-widget">
+    <button onclick="toggleChat()">💬 Помощь</button>
+    <div id="chat-box" class="hidden">
+      <p>Здравствуйте! Чем можем помочь?</p>
+      <input type="text" placeholder="Ваш вопрос..." />
+      <button onclick="sendQuestion()">Отправить</button>
+    </div>
+  </div>
 
   <footer>
     <p>© 2025 Elektrosistemi175 • Telegram: @elektrosistemi175</p>
