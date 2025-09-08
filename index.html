@@ -3,71 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Сборка электрических щитов • Автоматы ETI • 175.com.ua</title>
-
-  <!-- SEO base -->
-  <meta name="description" content="Сборка электрических щитов. Автоматы ETI. Комплектация, подбор и поставка. Быстро и аккуратно." />
+  <title>Сборка электрических щитов • ETI • 175.com.ua</title>
+  <meta name="description" content="Сборка электрических щитов. Автоматы ETI. Комплектация, подбор и поставка." />
   <link rel="icon" href="/favicon.ico" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Сборка электрических щитов • Автоматы ETI" />
+  <meta property="og:title" content="Сборка электрических щитов • ETI" />
   <meta property="og:description" content="Сборка щитов. Автоматика ETI. Комплектация, подбор и поставка." />
-  <meta property="og:type" content="website" />
   <meta property="og:image" content="/banner.jpg" />
   <meta property="og:url" content="https://175.com.ua/" />
-
-  <link rel="preload" as="image" href="/banner.jpg" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topbar">
-    <div class="container">
-      <div class="brand">
-        <a href="/" class="logo">175</a>
-        <span class="tagline" data-i18n="tagline">Сборка электрических щитов • Автоматы ETI</span>
+    <div class="logo">175</div>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#contact">Контакты</a>
+      <div class="lang-switch">
+        <button data-lang="ru" class="active">RU</button>
+        <button data-lang="ua">UA</button>
       </div>
-      <nav class="nav">
-        <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
-        <a href="#contact" data-i18n="nav_contact">Контакты</a>
-        <div class="lang-switch">
-          <button type="button" class="lang-btn active" data-lang="ru">RU</button>
-          <button type="button" class="lang-btn" data-lang="ua">UA</button>
-        </div>
-      </nav>
-    </div>
+    </nav>
   </header>
 
-  <section class="main-banner" aria-label="Главный баннер">
+  <section class="main-banner">
     <img src="/banner.jpg" alt="Сборка электрических щитов и автоматика ETI" />
     <div class="banner-overlay">
-      <h1 data-i18n="hero_title">Сборка электрических щитов. Автоматы ETI.</h1>
-      <p class="hero-sub" data-i18n="hero_sub">Комплектация, подбор и поставка. Быстро, аккуратно, по ТЗ.</p>
-      <a href="#catalog" class="cta-button" data-i18n="cta_view_catalog">Смотреть каталог</a>
+      <h1>Сборка электрических щитов</h1>
+      <p>Автоматы ETI • Комплектация • Поставка</p>
+      <a href="#catalog" class="cta-button">Смотреть каталог</a>
     </div>
   </section>
 
-  <main class="container">
-    <section id="catalog-section" class="catalog-section">
-      <h2 data-i18n="catalog_title">Каталог товаров</h2>
-      <p class="catalog-sub" data-i18n="catalog_sub">Автоматические выключатели ETI — популярные номиналы и характеристики.</p>
-      <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+  <main>
+    <section id="catalog">
+      <h2>Каталог товаров</h2>
+      <div class="filters">
+        <select id="filter-characteristic">
+          <option value="">Характеристика</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+        <select id="filter-current">
+          <option value="">Ток</option>
+          <option value="10">10А</option>
+          <option value="13">13А</option>
+          <option value="16">16А</option>
+          <option value="25">25А</option>
+          <option value="32">32А</option>
+          <option value="40">40А</option>
+          <option value="50">50А</option>
+        </select>
+        <select id="filter-poles">
+          <option value="">Полюсы</option>
+          <option value="1p">1p</option>
+          <option value="2p">2p</option>
+          <option value="3p+N">3p+N</option>
+        </select>
+      </div>
+      <div id="catalog-grid"></div>
     </section>
 
-    <section id="contact" class="contact-section">
-      <h2 data-i18n="contact_title">Контакты</h2>
-      <ul class="contact-list">
-        <li><strong data-i18n="contact_label_phone">Телефон:</strong> <a href="tel:+380000000000">+380 (00) 000-00-00</a></li>
-        <li><strong>E-mail:</strong> <a href="mailto:info@175.com.ua">info@175.com.ua</a></li>
-        <li><strong data-i18n="contact_label_note">Заметка:</strong> <span data-i18n="contact_note">Мы занимаемся только сборкой и поставкой, без монтажных работ.</span></li>
-      </ul>
+    <section id="contact">
+      <h2>Контакты</h2>
+      <p>Телефон: <a href="tel:+380000000000">+380 (00) 000-00-00</a></p>
+      <p>Email: <a href="mailto:info@175.com.ua">info@175.com.ua</a></p>
+      <p>Мы занимаемся только сборкой и поставкой, без монтажных работ.</p>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© 175.com.ua</span>
-      <span data-i18n="footer_rights">Сборка электрических щитов • Автоматы ETI</span>
-    </div>
+  <footer>
+    <p>© 175.com.ua • Сборка электрических щитов • ETI</p>
   </footer>
 
   <script src="script.js"></script>
