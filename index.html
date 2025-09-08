@@ -2,80 +2,216 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Сборка электрических щитов • ETI • 175.com.ua</title>
-  <meta name="description" content="Сборка электрических щитов. Автоматы. Комплектация, подбор и поставка." />
-  <link rel="icon" href="/favicon.ico" />
-  <meta property="og:title" content="Сборка электрических щитов •" />
-  <meta property="og:description" content="Сборка щитов. Автоматика. Комплектация, подбор и поставка." />
-  <meta property="og:image" content="/banner.jpg" />
-  <meta property="og:url" content="https://175.com.ua/" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог товаров</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .lang-switch {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .lang-switch button {
+      margin: 0 5px;
+      padding: 6px 12px;
+      border: none;
+      background: #ccc;
+      cursor: pointer;
+    }
+    .lang-switch button.active {
+      background: #007bff;
+      color: white;
+    }
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    select {
+      padding: 6px;
+      font-size: 14px;
+    }
+    #catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .card-actions {
+      margin-top: 10px;
+    }
+    .btn {
+      padding: 6px 12px;
+      margin: 5px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #28a745;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="logo">175</div>
-    <nav>
-      <a href="#catalog">Каталог</a>
-      <a href="#contact">Контакты</a>
-      <div class="lang-switch">
-        <button data-lang="ru" class="active">RU</button>
-        <button data-lang="ua">UA</button>
-      </div>
-    </nav>
-  </header>
 
-  <section class="main-banner">
-    <img src="/banner.jpg" alt="Сборка электрических щитов и автоматика" />
-    <div class="banner-overlay">
-      <h1>Сборка электрических щитов</h1>
-      <p>Автоматы  • Комплектация • Поставка</p>
-      <a href="#catalog" class="cta-button">Смотреть каталог</a>
-    </div>
-  </section>
+  <h2>Каталог товаров</h2>
 
-  <main>
-    <section id="catalog">
-      <h2>Каталог товаров</h2>
-      <div class="filters">
-        <select id="filter-characteristic">
-          <option value="">Характеристика</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-        </select>
-        <select id="filter-current">
-          <option value="">Ток</option>
-          <option value="10">10А</option>
-          <option value="13">13А</option>
-          <option value="16">16А</option>
-          <option value="25">25А</option>
-          <option value="32">32А</option>
-          <option value="40">40А</option>
-          <option value="50">50А</option>
-        </select>
-        <select id="filter-poles">
-          <option value="">Полюсы</option>
-          <option value="1p">1p</option>
-          <option value="2p">2p</option>
-          <option value="3p+N">3p+N</option>
-        </select>
-      </div>
-      <div id="catalog-grid"></div>
-    </section>
+  <div class="lang-switch">
+    <button data-lang="ru" class="active">RU</button>
+    <button data-lang="ua">UA</button>
+  </div>
 
-    <section id="contact">
-      <h2>Контакты</h2>
-      <p>Телефон: <a href="tel:+38099999999">+380 (00) 999-99-99</a></p>
-      <p>Email: <a href="mailto:info@175.com.ua">info@175.com.ua</a></p>
-      <p>Мы занимаемся сборкой, без монтажных работ.</p>
-    </section>
-  </main>
+  <div class="filters">
+    <select id="filter-current">
+      <option value="">Ток</option>
+      <option value="10">10А</option>
+      <option value="13">13А</option>
+      <option value="16">16А</option>
+      <option value="25">25А</option>
+      <option value="32">32А</option>
+      <option value="40">40А</option>
+      <option value="50">50А</option>
+    </select>
+    <select id="filter-characteristic">
+      <option value="">Характеристика</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+    </select>
+    <select id="filter-poles">
+      <option value="">Полюсы</option>
+      <option value="1p">1p</option>
+      <option value="2p">2p</option>
+      <option value="3p+N">3p+N</option>
+    </select>
+  </div>
 
-  <footer>
-    <p>© 175.com.ua • Сборка электрических щитов • </p>
-  </footer>
+  <div id="catalog-grid"></div>
 
-  <script src="script.js"></script>
+  <script>
+    let currentLang = 'ru';
+
+    const i18n = {
+      ru: {
+        catalog_title: 'Каталог товаров',
+        btn_details: 'Подробнее',
+        btn_add: 'В запрос',
+        filter_current: 'Ток',
+        filter_char: 'Характеристика',
+        filter_poles: 'Полюсы'
+      },
+      ua: {
+        catalog_title: 'Каталог товарів',
+        btn_details: 'Докладніше',
+        btn_add: 'У запит',
+        filter_current: 'Струм',
+        filter_char: 'Характеристика',
+        filter_poles: 'Полюси'
+      }
+    };
+
+    const products = [
+      {
+        id: "2131716",
+        name_ru: "Автоматический выключатель ETIMAT 10 1p C 16А",
+        name_ua: "Автоматичний вимикач ETIMAT 10 1p C 16А",
+        price: 4.40,
+        current: "16",
+        characteristic: "C",
+        poles: "1p",
+        image: "/images/2131716.jpg"
+      },
+      {
+        id: "2126720",
+        name_ru: "Автоматический выключатель ETIMAT 10 3p+N В 40А",
+        name_ua: "Автоматичний вимикач ETIMAT 10 3p+N В 40А",
+        price: 28.60,
+        current: "40",
+        characteristic: "B",
+        poles: "3p+N",
+        image: "/images/2126720.jpg"
+      }
+    ];
+
+    function renderCatalog() {
+      const grid = document.getElementById("catalog-grid");
+      grid.innerHTML = "";
+
+      const currentFilter = document.getElementById("filter-current").value;
+      const charFilter = document.getElementById("filter-characteristic").value;
+      const polesFilter = document.getElementById("filter-poles").value;
+
+      const filtered = products.filter(p =>
+        (!currentFilter || p.current === currentFilter) &&
+        (!charFilter || p.characteristic === charFilter) &&
+        (!polesFilter || p.poles === polesFilter)
+      );
+
+      filtered.forEach(p => {
+        const name = currentLang === 'ua' ? p.name_ua : p.name_ru;
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${p.image}" alt="${name}" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22150%22><rect width=%22200%22 height=%22150%22 fill=%22%230f1115%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239aa3b2%22 font-size=%2214%22 font-family=%22Arial%22>${name}</text></svg>'" />
+          <h3>${name}</h3>
+          <p>${p.price.toFixed(2)} ₴</p>
+          <div class="card-actions">
+            <button class="btn">${i18n[currentLang].btn_details}</button>
+            <button class="btn btn-primary">${i18n[currentLang].btn_add}</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function applyTranslations() {
+      document.querySelector("h2").textContent = i18n[currentLang].catalog_title;
+      document.getElementById("filter-current").options[0].textContent = i18n[currentLang].filter_current;
+      document.getElementById("filter-characteristic").options[0].textContent = i18n[currentLang].filter_char;
+      document.getElementById("filter-poles").options[0].textContent = i18n[currentLang].filter_poles;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCatalog();
+      applyTranslations();
+
+      document.querySelectorAll(".lang-switch button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentLang = btn.dataset.lang;
+          document.querySelectorAll(".lang-switch button").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          applyTranslations();
+          renderCatalog();
+        });
+      });
+
+      document.querySelectorAll("select").forEach(sel => {
+        sel.addEventListener("change", renderCatalog);
+      });
+    });
+  </script>
+
 </body>
 </html>
