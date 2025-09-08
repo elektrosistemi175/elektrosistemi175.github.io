@@ -1,25 +1,31 @@
-// Плавная прокрутка
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(link.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+let cart = [];
+
+fetch('products.json')
+  .then(res => res.json())
+  .then(data => {
+    const catalog = document.getElementById('catalog');
+    data.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p>${product.price} ₴</p>
+        <button onclick="addToCart(${product.id})">Добавить в корзину</button>
+      `;
+      catalog.appendChild(card);
     });
   });
-});
 
-// Анимация появления карточек
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-});
-document.querySelectorAll('.card').forEach(card => observer.observe(card));
+function addToCart(id) {
+  cart.push(id);
+  document.getElementById('cart-count').textContent = cart.length;
+}
 
-// Эффект заголовка
-const title = document.querySelector('.animate-title');
-title.innerHTML = title.textContent.split('').map((letter, i) =>
-  `<span style="animation-delay:${i * 0.05}s">${letter}</span>`
-).join('');
+function toggleCart() {
+  document.getElementById('cart').classList.toggle('hidden');
+}
+
+function checkout() {
+  alert('Заказ оформлен! Мы свяжемся с вами.');
+}
