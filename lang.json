@@ -1,20 +1,44 @@
-{
-  "ru": {
-    "catalog": "Каталог",
-    "cart": "Корзина",
-    "search": "Поиск...",
-    "add_to_cart": "Добавить в корзину",
-    "checkout": "Оформить заказ",
-    "banner_title": "Оборудование и монтаж под ключ",
-    "banner_sub": "Щиты, автоматы, кабели — всё в одном месте"
+[
+  {
+    "sku": "2131716",
+    "name": "Автоматический выключатель ETIMAT 10 1p C 16А (10kA), ETI",
+    "price": "210.70",
+    "currency": "грн",
+    "brand": "ETI",
+    "category": "Автоматические выключатели",
+    "image": "http://175.com.ua/content/images/42/avtomaticheskiy-vykluchatel-etimat-10-1p-c-16a-10ka-eti-2131716-47145444071955.jpg",
+    "description": "Модульный автоматический выключатель ETIMAT 10 1p C 16А (10 kA) ETI однополюсный...",
+    "short": "ETIMAT 10 1p С 16А (10 kA), ETI",
+    "current": "16 А",
+    "poles": "1",
+    "breaking": "10кА"
   },
-  "ua": {
-    "catalog": "Каталог",
-    "cart": "Кошик",
-    "search": "Пошук...",
-    "add_to_cart": "Додати до кошика",
-    "checkout": "Оформити замовлення",
-    "banner_title": "Обладнання та монтаж під ключ",
-    "banner_sub": "Щити, автомати, кабелі — все в одному місці"
+  {
+    "sku": "2151715",
+    "name": "Автоматический выключатель ETIMAT 10 1p D 13А (10kA), ETI",
+    "price": "284.20",
+    "currency": "грн",
+    "brand": "ETI",
+    "category": "Автоматические выключатели",
+    "image": "http://175.com.ua/content/images/43/31586276367306.jpg",
+    "description": "",
+    "short": "ETIMAT 10 1p D 13А (10 kA), ETI",
+    "current": "13 А",
+    "poles": "1",
+    "breaking": "10кА"
+  },
+  {
+    "sku": "2153701",
+    "name": "Автоматический выключатель ETIMAT 10 2p D 0,5А (10kA), ETI",
+    "price": "823.20",
+    "currency": "грн",
+    "brand": "ETI",
+    "category": "Автоматические выключатели",
+    "image": "http://175.com.ua/content/images/7/49826599409182.jpg",
+    "description": "",
+    "short": "ETIMAT 10 2p D 0,5А (10 kA), ETI",
+    "current": "0,5 А",
+    "poles": "2",
+    "breaking": "10кА"
   }
-}
+]
