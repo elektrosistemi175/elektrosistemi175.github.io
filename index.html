@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Сборка электрических щитов •</title>
+  <link rel="icon" href="data/favicon.ico" />
+  <meta name="description" content="Автоматика ETI, сборка щитов, поставка комплектующих. Каталог товаров с характеристиками и ценами.">
+  <meta property="og:title" content="Сборка электрических щитов">
+  <meta property="og:image" content="data/баннер.jpg">
+  <meta property="og:description" content="Автоматика ETI, сборка щитов, поставка комплектующих. Каталог товаров с характеристиками и ценами.">
   <style>
     body {
       margin: 0;
@@ -91,9 +96,23 @@
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: transform 0.2s ease;
+      text-align: left;
     }
     .product-card:hover {
       transform: translateY(-4px);
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+    .product-card p {
+      margin: 4px 0;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -112,14 +131,33 @@
 
   <section id="catalog">
     <h2>Каталог товаров</h2>
-    <div class="product-grid">
-      <div class="product-card">Автомат 16A</div>
-      <div class="product-card">Дифференциальный выключатель</div>
-      <div class="product-card">Корпус щита IP65</div>
-      <div class="product-card">Кабель NYM 3x2.5</div>
-      <!-- Добавь свои карточки -->
+    <div class="product-grid" id="productGrid">
+      <!-- Товары будут загружены динамически -->
     </div>
   </section>
+
+  <script>
+    fetch('data/products.json')
+      .then(res => res.json())
+      .then(products => {
+        const grid = document.getElementById('productGrid');
+        products.forEach(p => {
+          grid.innerHTML += `
+            <div class="product-card">
+              <img src="${p.image}" alt="${p.name}">
+              <h3>${p.name}</h3>
+              <p><strong>Цена:</strong> ${p.price} ${p.currency}</p>
+              <p><strong>Ток:</strong> ${p.current}</p>
+              <p><strong>Полюсов:</strong> ${p.poles}</p>
+              <p><strong>Отключающая способность:</strong> ${p.breaking}</p>
+            </div>`;
+        });
+      })
+      .catch(err => {
+        document.getElementById('productGrid').innerHTML = '<p>Ошибка загрузки каталога.</p>';
+        console.error('Ошибка загрузки JSON:', err);
+      });
+  </script>
 
 </body>
 </html>
