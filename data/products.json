@@ -22,17 +22,5 @@
     "current": "13 А",
     "poles": "1",
     "breaking": "10кА"
-  },
-  {
-    "sku": "2153701",
-    "name": "Автоматический выключатель ETIMAT 10 2p D 0,5А (10kA), ETI",
-    "price": "823.20",
-    "currency": "грн",
-    "brand": "ETI",
-    "category": "Автоматические выключатели",
-    "image": "http://175.com.ua/content/images/7/49826599409182.jpg",
-    "current": "0,5 А",
-    "poles": "2",
-    "breaking": "10кА"
   }
 ]
